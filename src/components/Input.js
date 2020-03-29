@@ -1,6 +1,12 @@
 import React from 'react';
 import './Input.css';
 
-export const Input = props => (
-<div className='input'>{props.input}</div>
-);
+export class Input extends React.Component {
+render() {
+    return(
+<div className='input'>
+    {this.props.input}
+</div>
+    );
+}
+} 

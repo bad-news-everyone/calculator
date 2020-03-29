@@ -1,0 +1,14 @@
+[0326/152652.717:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/164916.902:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/165142.591:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/165407.980:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/165415.551:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/165416.209:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/170315.837:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/170315.870:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/170315.873:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/170322.001:ERROR:process_info.cc(359)] UncheckedAllocate
+[0326/170537.570:ERROR:process_info.cc(359)] UncheckedAllocate
+[0329/163614.233:ERROR:process_reader_win.cc(151)] SuspendThread: Отказано в доступе. (0x5)
+[0329/163614.236:ERROR:exception_snapshot_win.cc(98)] thread ID 8520 not found in process
+[0329/163614.281:ERROR:process_info.cc(359)] UncheckedAllocate

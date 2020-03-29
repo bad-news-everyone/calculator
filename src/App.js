@@ -8,49 +8,63 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      input: ''
-    };
+      input: "0",
+    }
   }
 
   addToInput = val => {
-    this.setState({ input: this.state.input + val })
-  };
-
+    switch (val) {
+      case '0':
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+      case '7':
+      case '8':
+      case '9':
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        if (this.state.input === "0") {
+          this.setState({
+            input: val
+          });
+        } else {
+          this.setState({
+            input: this.state.input + val
+          });
+        }
+        break;
+      case '=':
+        this.setState({
+          input: eval(this.state.input)
+        })
+        break;
+      case 'C':
+        this.setState({
+          input: '0'
+        })
+        break;
+    }
+  }
 
   render() {
     return (
       <div className='app'>
         <div className='wrapper'>
-          <Input input={this.state.input} />
-          <div className='row'>
-            <button onClick={() => this.addToInput('7')}>7</button>
-            <button onClick={() => this.addToInput('8')}>8</button>
-            <button onClick={() => this.addToInput('9')}>9</button>
-            <button onClick={() => this.addToInput('*')}>*</button>
-          </div>
-          <div className='row'>
-            <button onClick={() => this.addToInput('4')}>4</button>
-            <button onClick={() => this.addToInput('5')}>5</button>
-            <button onClick={() => this.addToInput('6')}>6</button>
-            <button onClick={() => this.addToInput('-')}>-</button>
-          </div>
-          <div className='row'>
-            <button onClick={() => this.addToInput('1')}>1</button>
-            <button onClick={() => this.addToInput('2')}>2</button>
-            <button onClick={() => this.addToInput('3')}>3</button>
-            <button onClick={() => this.addToInput('+')}>+</button>
-          </div>
-          <div className='row'>
-            <button>C</button>
-            <button onClick={() => this.addToInput('0')}>0</button>
-            <button onClick={() => this.addToInput('/')}>/</button>
-            <button onClick={() => this.addToInput('=')}>=</button>
-          </div>
-        </div>
+        <Input input={
+          this.state.input
+        } />
+        <Button clickOnButton={
+          this.addToInput
+        } />
+      </div>
       </div>
     );
   }
 }
-
 
 export default App;

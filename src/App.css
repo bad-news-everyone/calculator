@@ -2,20 +2,13 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 .wrapper {
-width: 500px;
-height: 300px;
+  width: 400px;
+  margin-top: 100px;
 }
 
-.row {
-  display: flex;
-  width: 100%;
-}
 
-button {
-  height: 50px;
-  width: 50px;
-  background-color: azure;
-}
+

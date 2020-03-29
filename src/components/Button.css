@@ -1,6 +1,23 @@
-button {
-    height: 50px;
-    width: 50px;
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  flex-wrap: wrap;
+  width: 100%;
+  
+  }
+
+  button {
     background-color: azure;
-    font-size: large;
+    width: 25%;
+    height: 50px;
+  }
+
+  .row {
+    display: flex;
+    width: 100%;
+  }
+
+  .equally {
+    background-color: wheat;
   }
