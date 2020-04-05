@@ -4,10 +4,7 @@ import './Button.css'
 export class Button extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            input: ''
-        };
+        this.addToInput=this.addToInput.bind(this);
     }
 
     addToInput = (event) => {

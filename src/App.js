@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { Button } from './components/Button';
 import { Input } from './components/Input';
+import { History } from './components/History';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -9,7 +11,9 @@ class App extends React.Component {
 
     this.state = {
       input: "0",
+      history: [],
     }
+    this.addToInput = this.addToInput.bind(this);
   }
 
   addToInput = val => {
@@ -31,18 +35,22 @@ class App extends React.Component {
         if (this.state.input === "0") {
           this.setState({
             input: val
-          });
+          }); 
         } else {
           this.setState({
-            input: this.state.input + val
+            input: this.state.input + val,
           });
         }
         break;
+
       case '=':
-        this.setState({
-          input: eval(this.state.input)
-        })
+        this.setState((state, props) => ({
+          input: eval(state.input),
+          history: state.input + '=' + eval(state.input),
+        }));
+        
         break;
+
       case 'C':
         this.setState({
           input: '0'
@@ -55,13 +63,16 @@ class App extends React.Component {
     return (
       <div className='app'>
         <div className='wrapper'>
-        <Input input={
-          this.state.input
-        } />
-        <Button clickOnButton={
-          this.addToInput
-        } />
-      </div>
+          <Input input={
+            this.state.input
+          } />
+          <Button clickOnButton={
+            this.addToInput
+          } />
+          <History history={
+            this.state.history
+          } />
+        </div>
       </div>
     );
   }
