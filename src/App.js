@@ -4,21 +4,18 @@ import { Button } from './components/Button';
 import { Input } from './components/Input';
 import { History } from './components/History';
 
-export let myHistory = ['2+2=4']; 
+export let myHistory = [];
 
 class App extends React.Component {
-  
+
   constructor(props) {
     super(props);
-    
+
     this.state = {
       input: "0",
       history: [],
-      firstNumber: '',
-      secondNumber: '',
-      sign: '',
     }
-    
+
     this.addToInput = this.addToInput.bind(this);
   }
 
@@ -42,7 +39,7 @@ class App extends React.Component {
         if (this.state.input === "0") {
           this.setState({
             input: val
-          }); 
+          });
         } else {
           this.setState({
             input: this.state.input + val,
@@ -54,11 +51,12 @@ class App extends React.Component {
         this.setState((state, props) => ({
           input: eval(state.input),
           history: state.input + '=' + eval(state.input),
-          
+
         }));
-       
-        myHistory.push(this.state.history + ' ');
-        alert(myHistory);
+
+        myHistory = [...myHistory, (this.state.history + ' ,')];
+        
+        
         break;
 
       case 'C':
