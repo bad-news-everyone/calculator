@@ -12,3 +12,6 @@
 [0329/163614.233:ERROR:process_reader_win.cc(151)] SuspendThread: Отказано в доступе. (0x5)
 [0329/163614.236:ERROR:exception_snapshot_win.cc(98)] thread ID 8520 not found in process
 [0329/163614.281:ERROR:process_info.cc(359)] UncheckedAllocate
+[0411/201404.931:ERROR:process_info.cc(359)] UncheckedAllocate
+[0411/202157.727:ERROR:process_info.cc(359)] UncheckedAllocate
+[0411/202157.778:ERROR:process_info.cc(359)] UncheckedAllocate

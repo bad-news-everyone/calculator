@@ -1,69 +1,50 @@
+
 import React from 'react';
+import { Input } from './components/Input.js';
+import { History } from './components/History.js';
 import './App.css';
-import { Button } from './components/Button';
-import { Input } from './components/Input';
-import { History } from './components/History';
+import './components/Button.css';
 
-export let myHistory = [];
-
-class App extends React.Component {
+export class App extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      input: "0",
+      input: '',
       history: [],
     }
+  }
 
-    this.addToInput = this.addToInput.bind(this);
+  addToInput = (val) => {
+    this.setState({ input: this.state.input + val });
+  }
+
+  clearInput() {
+    this.setState({
+      input: ''
+    })
+  }
+
+  clearHistory() {
+    this.setState({
+      history: ''
+    })
   }
 
 
-  addToInput = val => {
-    switch (val) {
-      case '0':
-      case '1':
-      case '2':
-      case '3':
-      case '4':
-      case '5':
-      case '6':
-      case '7':
-      case '8':
-      case '9':
-      case '+':
-      case '-':
-      case '*':
-      case '/':
-        if (this.state.input === "0") {
-          this.setState({
-            input: val
-          });
-        } else {
-          this.setState({
-            input: this.state.input + val,
-          });
-        }
-        break;
-
-      case '=':
-        this.setState((state, props) => ({
-          input: eval(state.input),
-          history: state.input + '=' + eval(state.input),
-
-        }));
-
-        myHistory = [...myHistory, (this.state.history + ' ,')];
-        
-        
-        break;
-
-      case 'C':
-        this.setState({
-          input: '0'
-        })
-        break;
+  equally() {
+    const newHistory = this.state.history.slice();
+    try {
+      this.setState({
+        input: eval(this.state.input),
+        history: [...newHistory, (this.state.input + '=' + eval(this.state.input) + ', ')],
+      })
+    } catch (err) {
+      this.setState({
+        input: 'Syntax Error',
+        history: [],
+      })
     }
   }
 
@@ -71,19 +52,40 @@ class App extends React.Component {
     return (
       <div className='app'>
         <div className='wrapper'>
-          <Input input={
-            this.state.input
-          } />
-          <Button clickOnButton={
-            this.addToInput
-          } />
-          <History history={
-            myHistory
-          } />
+          <div className='screen'>
+            <Input input={this.state.input} />
+          </div>
+          <div className='btn-wrapper'>
+
+            <div className='row'>
+              <button onClick={() => this.addToInput('7')}>7</button>
+              <button onClick={() => this.addToInput('8')}>8</button>
+              <button onClick={() => this.addToInput('9')}>9</button>
+              <button onClick={() => this.addToInput('*')}>*</button>
+            </div>
+            <div className='row'>
+              <button onClick={() => this.addToInput('4')}>4</button>
+              <button onClick={() => this.addToInput('5')}>5</button>
+              <button onClick={() => this.addToInput('6')}>6</button>
+              <button onClick={() => this.addToInput('-')}>-</button>
+            </div>
+            <div className='row'>
+              <button onClick={() => this.addToInput('1')}>1</button>
+              <button onClick={() => this.addToInput('2')}>2</button>
+              <button onClick={() => this.addToInput('3')}>3</button>
+              <button onClick={() => this.addToInput('+')}>+</button>
+            </div>
+            <div className='row'>
+              <button onClick={() => this.clearInput('C')}>C</button>
+              <button onClick={() => this.addToInput('0')}>0</button>
+              <button onClick={() => this.addToInput('/')}>/</button>
+              <button className='equally' onClick={() => this.equally('=')}>=</button>
+            </div>
+          </div>
+          <History history={this.state.history} />
+          <button onClick={() => this.clearHistory()}>Clear History</button>
         </div>
       </div>
     );
   }
 }
-
-export default App;

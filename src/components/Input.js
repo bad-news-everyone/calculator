@@ -7,6 +7,6 @@ export class Input extends React.Component {
             <div className='input'>
                 {this.props.input}
             </div>
-        );
+        )
     }
-} 
+}
