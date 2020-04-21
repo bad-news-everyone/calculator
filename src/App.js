@@ -79,6 +79,9 @@ export class App extends React.Component {
               <button onClick={() => this.clearInput('C')}>C</button>
               <button onClick={() => this.addToInput('0')}>0</button>
               <button onClick={() => this.addToInput('/')}>/</button>
+              <button onClick={() => this.addToInput('.')}>.</button>
+            </div>
+            <div className='row'>
               <button className='equally' onClick={() => this.equally('=')}>=</button>
             </div>
           </div>

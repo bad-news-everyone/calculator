@@ -11,6 +11,8 @@
     background-color: azure;
     width: 25%;
     height: 50px;
+    font-size: medium;
+    font-weight: bolder;
   }
 
   .row {
@@ -20,4 +22,5 @@
 
   .equally {
     background-color: wheat;
+    width: 100%;
   }

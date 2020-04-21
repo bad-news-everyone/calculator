@@ -1,12 +1,10 @@
 import React from 'react';
 import './Input.css';
 
-export class Input extends React.Component {
-    render() {
+export function Input(props) {
         return (
             <div className='input'>
-                {this.props.input}
+                {props.input}
             </div>
         )
-    }
 }
